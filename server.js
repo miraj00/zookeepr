@@ -57,7 +57,7 @@ function filterByQuery(query, animalsArray) {
     return result;
   }
 
-//--------------------------------------------------------------------
+//-------Routes set -( query for multi  and params for singular----------------------------------------
 // To add the route, type the following code just before app.listen():
 app.get('/api/animals', (req, res) => {
     let results = animals;
@@ -83,7 +83,7 @@ app.get('/api/animals', (req, res) => {
   });
 
 
-
+//----------listen and set Port --------------------------------------------------
 // To make our server listen, add the following code to the end 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);

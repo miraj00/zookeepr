@@ -39,3 +39,12 @@ git push heroku feature/MVP:main
 
 //----------------------------------------------
 In command line Typing : " heroku open "  will open file in browser
+
+//--------------------------------------------------
+for the route : app.get('/animals/:id', (req, res) => { })
+In    /animals/123?id=24&params=50
+
+req.params.id = 123
+req.query.id = 24
+req.query.params = 50
+
