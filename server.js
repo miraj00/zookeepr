@@ -15,12 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
 
+// this will make all public folder files available to front end
+app.use(express.static('public'));
+
 //----------------------------------------------------
 const { animals } = require('./data/animals');
 
 //-----------------------------------------------------------
-
-
 
 function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
@@ -118,7 +119,7 @@ app.get('/api/animals', (req, res) => {
    // });
 
    // A param route must come after the other GET route. 
-   app.get('/api/animals/:id', (req, res) => {
+app.get('/api/animals/:id', (req, res) => {
     const result = findById(req.params.id, animals);
     if (result){  
     res.json(result);
@@ -126,6 +127,23 @@ app.get('/api/animals', (req, res) => {
     res.send(404);
     }
   });
+
+  // -- route to serve animal.html page ---
+  app.get('/animals', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+  });
+
+  // -- route to serve zookeepers.html page ---
+  app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+  });
+
+  // --- wildcard route -- will direct to homepage as a response --- 
+  // -- this * route should always come last ----
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+  });
+
 
   // this represents client requesting server to accept data
   app.post('/api/animals', (req, res) => {
@@ -147,7 +165,13 @@ app.get('/api/animals', (req, res) => {
     }
   });
 
-//----------listen and set Port --------------------------------------------------
+
+  //--- This route respond with an HTML page to display in the browser.--------
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+  });
+
+//----------listen and set Port -----( this should be always at the end )---------------------------------------------
 // To make our server listen, add the following code to the end 
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}!`);

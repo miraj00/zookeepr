@@ -67,3 +67,15 @@ app.post ==== > this represents client requesting server to accept data
  When we don't send data the server can use or understand, we respond with a 400 error.
  This indicates to the user that our server doesn't have any problems and we can understand
  their request, but they incorrectly made the request and we can't allow it to work.
+ 
+ //---------------------------------------------------------
+ If we want to send a POST request, We use req.body to access any incoming POST data.
+ 
+ //-----------------------------------------------------------
+ it may feel natural to open the page that way, we need to make sure that every time we test something
+ on the front end that it is served from http://localhost:3001, or https://<your-heroku-app-name>.herokuapp.com 
+ when it's in production.
+
+//------Example link to test GET or post in Insomnia ------------------
+      http://localhost:3001/api/animals
+      http://localhost:3001/animals
