@@ -48,3 +48,22 @@ req.params.id = 123
 req.query.id = 24
 req.query.params = 50
 
+//--------------------------------------------------
+
+app.get  ==== > is used by clients to get data from server
+app.post ==== > this represents client requesting server to accept data 
+
+ // Fetch API's default request method is GET,
+
+ //------------------------------------------------------------
+ 
+ Use  " npm start " to turn on server   and " ctrl + C " to turn off the server
+
+ //--------------------------------------------------------------------
+
+ Use insomnia to test get, post   from : https://insomnia.rest/
+
+ //-------------------------------------------------------
+ When we don't send data the server can use or understand, we respond with a 400 error.
+ This indicates to the user that our server doesn't have any problems and we can understand
+ their request, but they incorrectly made the request and we can't allow it to work.
