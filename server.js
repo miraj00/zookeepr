@@ -30,13 +30,8 @@ app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
 
-
-
-
-
 //----------------------------------------------------
 const { animals } = require('./data/animals');
-
 
 
 //--------------All routes modularized to different files---------------------------------------------
